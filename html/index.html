@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Advanced Garage UI</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container" role="main" aria-label="Vehicle Garage Interface">
+            <header class="header">
+                <h1 class="garage-header" id="garage-header">Legion Square</h1>
+                <img src="logo.png" id="garage-logo" alt="Garage Logo" class="garage-logo" />
+            </header>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="vehicle-search" class="search-input" placeholder="Search vehicles..." aria-label="Search vehicles">
+                    <button id="clear-search" class="clear-search-btn" aria-label="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="filter-dropdown">
+                    <button class="filter-btn" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-filter"></i>
+                        <span>Filter</span>
+                    </button>
+                    <div class="filter-menu" role="menu" aria-hidden="true">
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-all" checked>
+                            <label for="filter-all">All Vehicles</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-available">
+                            <label for="filter-available">Available</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-out">
+                            <label for="filter-out">Out</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="filter-impound">
+                            <label for="filter-impound">Impounded</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="vehicles">
+                    <i class="fas fa-car"></i> Vehicles
+                </button>
+                <button class="tab-btn" data-tab="history">
+                    <i class="fas fa-history"></i> History
+                </button>
+                <button class="tab-btn" data-tab="maintenance">
+                    <i class="fas fa-tools"></i> Maintenance
+                </button>
+            </div>
+            
+            <!-- Vehicles Tab -->
+            <main class="vehicle-table tab-content active" id="vehicles-tab" role="list" aria-label="Vehicle List"></main>
+            
+            <!-- History Tab -->
+            <main class="vehicle-table tab-content" id="history-tab" role="list" aria-label="Vehicle History">
+                <div class="history-placeholder">
+                    <i class="fas fa-clock history-icon"></i>
+                    <p>Select a vehicle to view its history</p>
+                </div>
+            </main>
+            
+            <!-- Maintenance Tab -->
+            <main class="vehicle-table tab-content" id="maintenance-tab" role="list" aria-label="Vehicle Maintenance">
+                <div class="maintenance-overview">
+                    <div class="maintenance-header">
+                        <h3>Vehicle Maintenance Overview</h3>
+                        <p>Monitor and schedule maintenance for your vehicles</p>
+                    </div>
+                    
+                    <div class="maintenance-stats">
+                        <div class="maintenance-stat">
+                            <div class="stat-icon"><i class="fas fa-car"></i></div>
+                            <div class="stat-value" id="total-vehicles">0</div>
+                            <div class="stat-label">Total Vehicles</div>
+                        </div>
+                        <div class="maintenance-stat">
+                            <div class="stat-icon"><i class="fas fa-tools"></i></div>
+                            <div class="stat-value" id="needs-repair">0</div>
+                            <div class="stat-label">Needs Repair</div>
+                        </div>
+                        <div class="maintenance-stat">
+                            <div class="stat-icon"><i class="fas fa-oil-can"></i></div>
+                            <div class="stat-value" id="needs-service">0</div>
+                            <div class="stat-label">Needs Service</div>
+                        </div>
+                    </div>
+                    
+                    <div class="maintenance-vehicles" id="maintenance-vehicles-list">
+                        <div class="maintenance-placeholder">
+                            <i class="fas fa-wrench maintenance-icon"></i>
+                            <p>Loading vehicle maintenance data...</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
